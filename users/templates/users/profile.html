@@ -1,0 +1,8 @@
+{% extends "recipes/base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Информация о моем профиле</h1>
+  <h5>Имя аккаунта: {{ user.username}}</h5>
+  <h5>Почта: {{ user.email}}</h5>
+</div>
+{% endblock content %}

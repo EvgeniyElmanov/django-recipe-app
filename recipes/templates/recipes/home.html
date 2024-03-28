@@ -1,0 +1,19 @@
+{% extends "recipes/base.html" %}
+{% block content %}
+<h1>Лента рецептов:</h1>
+{% for recipe in recipes %}
+<div class="card my-4">
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Автор {{ recipe.author }}</h6>
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" style="max-width: 100%; height: auto;">
+    <p class="card-text">{{ recipe.description }}</p>
+    <p class="card-text">{{ recipe.time_r}}</p>
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{ recipe.updated_at|date:"F d, Y" }}
+    </h6>
+    <a href="{% url 'recipes-detail' recipe.pk %}" class="card-link" style="color: green;">Посмотреть рецепт</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
